@@ -32,63 +32,129 @@ class _HomePageState extends State<HomeMainPage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      body: _widget,
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(28),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
-            )
-          ],
-        ),
-        child: SafeArea(
-            child: GNav(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                tabBorderRadius: 5,
-                rippleColor: colorTap,
-                hoverColor: colorTap,
-                haptic: true,
-                curve: Curves.bounceIn,
-                duration: const Duration(milliseconds: 500),
-                gap: 0,
-                color: colorUnSelectedIconBottomNavigationBar,
-                activeColor: colorSelectedIconBottomNavigationBar,
-                iconSize: 24,
-                padding: const EdgeInsets.only(
-                    left: 5, right: 5, top: 20, bottom: 20),
-                tabMargin: const EdgeInsets.only(left: 0, right: 0),
-                selectedIndex: _selectedIndex,
-                onTabChange: (value) async {
-                  _selectedIndex = value;
-                  _widget = await indexWidgetMainPage(index: _selectedIndex);
-                  setState(() {});
-                },
-                tabs: const [
-              GButton(
-                icon: IconBlogDefi.home,
-                // text: 'Home',
-              ),
-              GButton(
-                icon: IconBlogDefi.mark,
-                // text: 'Mark',
-              ),
-              GButton(
-                icon: IconBlogDefi.search,
-                // text: 'Search',
-              ),
-              GButton(
-                icon: IconBlogDefi.notification,
-                // text: 'Noti',
-              ),
-              GButton(
-                icon: IconBlogDefi.setting,
-              )
-            ])),
+      backgroundColor: Colors.white10,
+      body: Stack(
+        children: [
+          _widget,
+          Positioned(
+            bottom: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(28),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 20,
+                  color: Colors.black.withOpacity(.1),
+                )
+              ],
+            ),
+            child: SafeArea(
+                child: GNav(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    tabBorderRadius: 45,
+                    rippleColor: colorTap,
+                    hoverColor: colorTap,
+                    // haptic: true,
+                    curve: Curves.bounceIn,
+                    duration: const Duration(milliseconds: 100),
+                    gap: 0,
+                    color: colorUnSelectedIconBottomNavigationBar,
+                    activeColor: colorSelectedIconBottomNavigationBar,
+                    iconSize: 24,
+                    padding: const EdgeInsets.only(
+                        left: 5, right: 5, bottom: 20),
+                    tabMargin: const EdgeInsets.only(left: 0, right: 0),
+                    selectedIndex: _selectedIndex,
+                    onTabChange: (value) async {
+                      _selectedIndex = value;
+                      _widget =
+                          await indexWidgetMainPage(index: _selectedIndex);
+                      setState(() {});
+                    },
+                    tabs: const [
+                  GButton(
+                    icon: IconBlogDefi.home,
+                    // text: 'Home',
+                  ),
+                  GButton(
+                    icon: IconBlogDefi.mark,
+                    // text: 'Mark',
+                  ),
+                  GButton(
+                    icon: IconBlogDefi.search,
+                    // text: 'Search',
+                  ),
+                  GButton(
+                    icon: IconBlogDefi.notification,
+                    // text: 'Noti',
+                  ),
+                  GButton(
+                    icon: IconBlogDefi.setting,
+                  )
+                ])),
+          )),
+        ],
       ),
+      // bottomNavigationBar: Container(
+      //   margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+      //   decoration: BoxDecoration(
+      //     color: Colors.white,
+      //     borderRadius: BorderRadius.circular(28),
+      //     boxShadow: [
+      //       BoxShadow(
+      //         blurRadius: 20,
+      //         color: Colors.black.withOpacity(.1),
+      //       )
+      //     ],
+      //   ),
+      //   child: SafeArea(
+      //       child: GNav(
+      //           mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //           tabBorderRadius: 45,
+      //           rippleColor: colorTap,
+      //           hoverColor: colorTap,
+      //           // haptic: true,
+      //           curve: Curves.bounceIn,
+      //           duration: const Duration(milliseconds: 100),
+      //           gap: 0,
+      //           color: colorUnSelectedIconBottomNavigationBar,
+      //           activeColor: colorSelectedIconBottomNavigationBar,
+      //           iconSize: 24,
+      //           padding: const EdgeInsets.only(
+      //               left: 5, right: 5, top: 20, bottom: 20),
+      //           tabMargin: const EdgeInsets.only(left: 0, right: 0),
+      //           selectedIndex: _selectedIndex,
+      //           onTabChange: (value) async {
+      //             _selectedIndex = value;
+      //             _widget = await indexWidgetMainPage(index: _selectedIndex);
+      //             setState(() {});
+      //           },
+      //           tabs: const [
+      //         GButton(
+      //           icon: IconBlogDefi.home,
+      //           // text: 'Home',
+      //         ),
+      //         GButton(
+      //           icon: IconBlogDefi.mark,
+      //           // text: 'Mark',
+      //         ),
+      //         GButton(
+      //           icon: IconBlogDefi.search,
+      //           // text: 'Search',
+      //         ),
+      //         GButton(
+      //           icon: IconBlogDefi.notification,
+      //           // text: 'Noti',
+      //         ),
+      //         GButton(
+      //           icon: IconBlogDefi.setting,
+      //         )
+      //       ])),
+      // ),
     );
   }
 
