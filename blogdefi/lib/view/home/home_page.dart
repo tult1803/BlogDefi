@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           actions: actionsAppBar(),
           elevation: 0,
         ),
-        body: Container(
+        body: SizedBox(
           width: size.width,
           height: size.height,
           child: Column(
@@ -101,17 +101,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   Widget tabBarView() {
-    return Container(
-      child: TabBarView(
-        controller: _tabController,
-        children: <Widget>[
-          Home(),
-          Container(child: Center(child: Text("Defi New")),),
-          Container(child: Center(child: Text("Defi Project")),),
-          Container(child: Center(child: Text("Blockchain")),),
-          Container(child: Center(child: Text("Review")),),
-        ],
-      ),
+    return TabBarView(
+      controller: _tabController,
+      children: <Widget>[
+        Home(),
+        Container(child: Center(child: Text("Defi New")),),
+        Container(child: Center(child: Text("Defi Project")),),
+        Container(child: Center(child: Text("Blockchain")),),
+        Container(child: Center(child: Text("Review")),),
+      ],
     );
   }
 
