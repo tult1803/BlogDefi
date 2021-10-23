@@ -1,7 +1,7 @@
+import 'package:blogdefi/helpers/components.dart';
 import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:blogdefi/view/home/mini/home.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,58 +28,26 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: colorAppBar,
+      appBar: AppBar(
+        // iconTheme: IconThemeData(color: colorIconAppBar),
         backgroundColor: colorAppBar,
-        appBar: AppBar(
-          backgroundColor: colorAppBar,
-          leading: _leadingAppBar(),
-          actions: actionsAppBar(),
-          elevation: 0,
-        ),
-        body: SizedBox(
-          width: size.width,
-          height: size.height,
-          child: Column(
-            children: [
-              Container(width: size.width, height: 100, child: bottomAppBar()),
-              Expanded(child: tabBarView()),
-            ],
-          ),
-        ));
-  }
-
-  Widget _leadingAppBar() {
-    return GestureDetector(
-      onTap: () {
-        print('Click Show list');
-      },
-      child: Icon(
-        IconBlogDefi.list,
-        color: colorIconAppBar,
-        size: 20,
+        leading: Builder(builder: (context) => leadingAppBar(context)),
+        actions: actionsAppBar(0),
+        elevation: 0,
       ),
+      body: Column(
+        children: [
+          Container(width: size.width, height: 100, child: bottomAppBar()),
+          // SizedBox(
+          //     width: size.width,
+          //     height: 1000,
+          //     child: tabBarView()),
+          Expanded(child: tabBarView()),
+        ],
+      ),
+      drawer: drawerAppBar(context),
     );
-  }
-
-  List<Widget> actionsAppBar() {
-    return [
-      GestureDetector(
-        onTap: () {
-          print('Click search');
-        },
-        child: Icon(
-          IconBlogDefi.search,
-          color: colorIconAppBar,
-          size: 20,
-        ),
-      ),
-      Container(
-        margin: const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 10),
-        width: 35,
-        decoration: BoxDecoration(
-            color: Colors.grey, borderRadius: BorderRadius.circular(10)),
-        // height: 10,
-      ),
-    ];
   }
 
   Widget bottomAppBar() {
@@ -94,7 +62,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         component("Home", 0),
         component("Defi new", 1),
         component("Defi project", 2),
-        component("Blockchain",3),
+        component("Blockchain", 3),
         component("Review", 4),
       ],
     );
@@ -105,15 +73,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       controller: _tabController,
       children: <Widget>[
         Home(),
-        Container(child: Center(child: Text("Defi New")),),
-        Container(child: Center(child: Text("Defi Project")),),
-        Container(child: Center(child: Text("Blockchain")),),
-        Container(child: Center(child: Text("Review")),),
+        Container(
+          child: Center(child: Text("Defi New")),
+        ),
+        Container(
+          child: Center(child: Text("Defi Project")),
+        ),
+        Container(
+          child: Center(child: Text("Blockchain")),
+        ),
+        Container(
+          child: Center(child: Text("Review")),
+        ),
       ],
     );
   }
 
-  Widget component(String title, int index){
+  Widget component(String title, int index) {
     return GestureDetector(
       onTap: () {
         print('Tap $title');
@@ -132,7 +108,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
-           Text(title),
+          Text(title),
         ],
       ),
     );

@@ -1,5 +1,6 @@
 // Dùng cho title của các container trong trang chủ
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +84,7 @@ Widget slideWeight(
   );
 }
 
-Widget containerTitle(title, {double? widthSizeBox}) {
+Widget containerTitle(title, {bool? isShowIcon,double? widthSizeBox, double? fontSize}) {
   return Container(
     margin: const EdgeInsets.only(left: 20),
     width: double.infinity,
@@ -94,13 +95,15 @@ Widget containerTitle(title, {double? widthSizeBox}) {
             "$title",
             style: GoogleFonts.sora(
                 color: colorContainerTitle,
-                fontWeight: FontWeight.bold,
-                fontSize: 20),
+                fontWeight: FontWeight.w500,
+                fontSize: fontSize ?? 20),
           ),
         ),
-        Container(
-            margin: const EdgeInsets.only(right: 20),
-            child: const Icon(Icons.code)),
+        SizedBox(
+          child:isShowIcon == false ? Container() : Container(
+              margin: const EdgeInsets.only(right: 20),
+              child: const Icon(IconBlogDefi.dot)),
+        ),
       ],
     ),
   );
