@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blogdefi.blogdefi">
    <application
-        android:label="blogdefi"
+        android:label="BlogDefi"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

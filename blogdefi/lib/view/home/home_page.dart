@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     super.initState();
     _index = 0;
     _tabController =
-        TabController(length: 5, vsync: this, initialIndex: _index);
+        TabController(length: 6, vsync: this, initialIndex: _index);
   }
 
   @override
@@ -52,18 +52,19 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget bottomAppBar() {
     return TabBar(
-      // labelPadding: EdgeInsets.symmetric(horizontal: 7.0),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 10.0),
       indicatorColor: colorAppBar,
       isScrollable: true,
       labelColor: labelColor,
       unselectedLabelColor: Colors.grey,
       controller: _tabController,
       tabs: <Widget>[
-        component("Home", 0),
-        component("Defi new", 1),
-        component("Defi project", 2),
-        component("Blockchain", 3),
-        component("Review", 4),
+        component("Home", 0, icon: IconBlogDefi.homehome),
+        component("Defi new", 1, icon: IconBlogDefi.definew),
+        component("Defi project", 2, icon: IconBlogDefi.defiproject),
+        component("Blockchain", 3, icon: IconBlogDefi.blockchain),
+        component("NFTS", 4, icon: IconBlogDefi.nfts),
+        component("Review", 5, icon: IconBlogDefi.review),
       ],
     );
   }
@@ -83,13 +84,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: Center(child: Text("Blockchain")),
         ),
         Container(
+          child: Center(child: Text("NFTS")),
+        ),
+        Container(
           child: Center(child: Text("Review")),
         ),
       ],
     );
   }
 
-  Widget component(String title, int index) {
+  Widget component(String title, int index, {icon}) {
     return GestureDetector(
       onTap: () {
         print('Tap $title');
@@ -107,6 +111,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               color: colorComponentTab,
               borderRadius: BorderRadius.circular(12),
             ),
+            child: Icon(icon, size: 30,),
           ),
           Text(title),
         ],

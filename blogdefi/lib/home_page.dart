@@ -40,7 +40,7 @@ class _HomePageState extends State<HomeMainPage> {
               left: 0,
               right: 0,
               child: Container(
-            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
+            margin: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(28),
@@ -51,50 +51,49 @@ class _HomePageState extends State<HomeMainPage> {
                 )
               ],
             ),
-            child: SafeArea(
-                child: GNav(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    tabBorderRadius: 45,
-                    rippleColor: colorTap,
-                    hoverColor: colorTap,
-                    // haptic: true,
-                    curve: Curves.bounceIn,
-                    duration: const Duration(milliseconds: 100),
-                    gap: 0,
-                    color: colorUnSelectedIconBottomNavigationBar,
-                    activeColor: colorSelectedIconBottomNavigationBar,
-                    iconSize: 24,
-                    padding: const EdgeInsets.only(
-                        left: 5, right: 5, bottom: 20),
-                    tabMargin: const EdgeInsets.only(left: 0, right: 0),
-                    selectedIndex: _selectedIndex,
-                    onTabChange: (value) async {
-                      _selectedIndex = value;
-                      _widget =
-                          await indexWidgetMainPage(index: _selectedIndex);
-                      setState(() {});
-                    },
-                    tabs: const [
-                  GButton(
-                    icon: IconBlogDefi.home,
-                    // text: 'Home',
-                  ),
-                  GButton(
-                    icon: IconBlogDefi.mark,
-                    // text: 'Mark',
-                  ),
-                  GButton(
-                    icon: IconBlogDefi.search,
-                    // text: 'Search',
-                  ),
-                  GButton(
-                    icon: IconBlogDefi.notification,
-                    // text: 'Noti',
-                  ),
-                  GButton(
-                    icon: IconBlogDefi.setting,
-                  )
-                ])),
+            child: GNav(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                tabBorderRadius: 45,
+                rippleColor: colorTap,
+                hoverColor: colorTap,
+                // haptic: true,
+                curve: Curves.bounceIn,
+                duration: const Duration(milliseconds: 100),
+                gap: 0,
+                color: colorUnSelectedIconBottomNavigationBar,
+                activeColor: colorSelectedIconBottomNavigationBar,
+                iconSize: 24,
+                padding: const EdgeInsets.only(
+                    left: 5, right: 5, bottom: 20, top: 20),
+                tabMargin: const EdgeInsets.only(left: 0, right: 0),
+                selectedIndex: _selectedIndex,
+                onTabChange: (value) async {
+                  _selectedIndex = value;
+                  _widget =
+                      await indexWidgetMainPage(index: _selectedIndex);
+                  setState(() {});
+                },
+                tabs: const [
+              GButton(
+                icon: IconBlogDefi.home,
+                // text: 'Home',
+              ),
+              GButton(
+                icon: IconBlogDefi.mark,
+                // text: 'Mark',
+              ),
+              GButton(
+                icon: IconBlogDefi.search,
+                // text: 'Search',
+              ),
+              GButton(
+                icon: IconBlogDefi.notification,
+                // text: 'Noti',
+              ),
+              GButton(
+                icon: IconBlogDefi.setting,
+              )
+            ]),
           )),
         ],
       ),

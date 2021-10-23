@@ -34,4 +34,11 @@ class IconBlogDefi {
   static const IconData mark = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData search = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData setting = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData defiproject = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData defi101 = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData definew = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData blockchain = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData nfts = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData review = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData homehome = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
