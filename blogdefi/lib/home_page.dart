@@ -10,7 +10,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'icon_defi_blog/icon_blog_defi_icons.dart';
 
 class HomeMainPage extends StatefulWidget {
-  const HomeMainPage({Key? key}) : super(key: key);
+  int? newSelected;
+
+
+  HomeMainPage({Key? key, this.newSelected}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -24,10 +27,24 @@ class _HomePageState extends State<HomeMainPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _selectedIndex = 0;
+    widget.newSelected == null ? _selectedIndex = 0: _selectedIndex = widget.newSelected!;
     _widget = HomePage();
   }
 
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    print('didChangeDependencies');
+  }
+
+  @override
+  void didUpdateWidget(covariant HomeMainPage oldWidget) {
+    // TODO: implement didUpdateWidget
+    super.didUpdateWidget(oldWidget);
+    print('$oldWidget - ${widget.newSelected}');
+    print("didUpdateWidget");
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

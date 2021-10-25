@@ -2,6 +2,8 @@ import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
 
+import '../home_page.dart';
+
 
 Widget _listTile(title){
   return ListTile(
@@ -66,9 +68,7 @@ Widget drawerAppBar(BuildContext context){
 List<Widget> actionsAppBar(int type) {
   return [
     GestureDetector(
-      onTap: () {
-        print('Click search');
-      },
+      onTap: () => HomeMainPage(newSelected: 2,),
       child: Icon(
         IconBlogDefi.search,
         color: colorIconAppBar,
