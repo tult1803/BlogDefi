@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         home: AnimatedSplashScreen(
             splash: "images/blogdefi.png",
             duration: 3000,
-            nextScreen: HomeMainPage()),
+            nextScreen: HomeMainPage(selectedIndex: 0,)),
       ),
     );
   }

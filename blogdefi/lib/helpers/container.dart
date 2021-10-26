@@ -1,6 +1,7 @@
 // Dùng cho title của các container trong trang chủ
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
+import 'package:blogdefi/presenter/show_detail_blog.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,19 +33,18 @@ Widget slideWeight(
     title,
     contentDetail,
     redirectUrl}) {
-  var size = MediaQuery.of(context).size;
   return GestureDetector(
     onTap: () {
-      // String htmlData = "<body>$contentDetail</body>";
-      // Navigator.of(context).push(MaterialPageRoute(
-      //   builder: (context) => DetailBlog(
-      //     id: id,
-      //     htmlData: htmlData,
-      //     title: "$title",
-      //     mainUrl: imgUrl,
-      //     redirectUrl: redirectUrl,
-      //   ),
-      // ));
+      String htmlData = "<body>$contentDetail</body>";
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => DetailBlog(
+          id: id,
+          htmlData: htmlData,
+          title: "$title",
+          mainUrl: imgUrl,
+          redirectUrl: redirectUrl,
+        ),
+      ));
     },
     child: Padding(
       padding: const EdgeInsets.all(8.0),
@@ -110,7 +110,7 @@ Widget containerTitle(title, {bool? isShowIcon,double? widthSizeBox, double? fon
 }
 
 //Dùng cho tin hot trong tuần của trang chủ
-Widget containerHotNews(
+Widget containerDetailBlog(
   context, {
   size,
   id,
@@ -121,16 +121,16 @@ Widget containerHotNews(
 }) {
   return GestureDetector(
     onTap: () {
-      // String htmlData = "<body>$content</body>";
-      // Navigator.of(context).push(MaterialPageRoute(
-      //   builder: (context) => DetailBlog(
-      //     id: id,
-      //     htmlData: htmlData,
-      //     title: "$title",
-      //     mainUrl: imgUrl,
-      //     redirectUrl: redirectUrl,
-      //   ),
-      // ));
+      String htmlData = "<body>$content</body>";
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => DetailBlog(
+          id: id,
+          htmlData: htmlData,
+          title: "$title",
+          mainUrl: imgUrl,
+          redirectUrl: redirectUrl,
+        ),
+      ));
     },
     child: Container(
       margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),

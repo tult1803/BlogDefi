@@ -1,8 +1,11 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
 
 import '../home_page.dart';
+import 'load/loading_animation.dart';
+import 'load/loading_animation_1.dart';
 
 
 Widget _listTile(title){
@@ -65,10 +68,12 @@ Widget drawerAppBar(BuildContext context){
 
 //type 0: Home
 //type 1: Setting
-List<Widget> actionsAppBar(int type) {
+List<Widget> actionsAppBar(BuildContext context ,int type) {
   return [
     GestureDetector(
-      onTap: () => HomeMainPage(newSelected: 2,),
+      onTap:() {
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomeMainPage(selectedIndex: 2)), (route) => false);
+      },
       child: Icon(
         IconBlogDefi.search,
         color: colorIconAppBar,
@@ -85,4 +90,49 @@ List<Widget> actionsAppBar(int type) {
       ) : Container(width: 30,),
     ),
   ];
+}
+
+Widget newPageProgressIndicatorBuilder() {
+  return Center(
+    child: ColorLoader5(
+      dotOneColor: colorLoadingAnimation,
+      dotTwoColor: colorLoadingAnimation,
+      dotThreeColor: colorLoadingAnimation,
+      dotType: DotType.circle,
+      dotIcon: const Icon(Icons.adjust),
+      duration: const Duration(seconds: 1),
+    ),
+  );
+}
+
+// Dùng cho PagedChildBuilderDelegate trong PagedSliverList
+Widget firstPageProgressIndicatorBuilder() {
+  return Center(
+    child: ColorLoader(dotRadius: 6,radius: 20,),
+  );
+}
+
+// Dùng cho PagedChildBuilderDelegate trong PagedSliverList
+Widget firstPageErrorIndicatorBuilder(BuildContext context, {String? tittle}) {
+  var size = MediaQuery.of(context).size;
+  return Container(
+    width: size.width,
+    height: 50,
+    child: Center(
+        child: AutoSizeText(
+          "$tittle",
+          style: TextStyle(color: colorIconAppBar, fontSize: 16),
+        )),
+  );
+}
+
+Widget leadingAppbar(BuildContext context, {Widget? widget, Color? colorIcon}) {
+  return IconButton(
+    icon: Icon(Icons.arrow_back_ios_outlined,
+        color: colorIcon ?? Colors.white),
+    onPressed: () => widget != null
+        ? Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => widget), (route) => false)
+        : Navigator.of(context).pop(),
+  );
 }

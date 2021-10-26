@@ -4,6 +4,8 @@ import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class SettingPage extends StatefulWidget {
   const SettingPage({Key? key}) : super(key: key);
 
@@ -21,7 +23,7 @@ class _SettingPageState extends State<SettingPage> {
         // iconTheme: IconThemeData(color: colorIconAppBar),
         backgroundColor: colorAppBar,
         leading: Builder(builder: (context) => leadingAppBar(context)),
-        actions: actionsAppBar(1),
+        actions: actionsAppBar(context ,1),
         elevation: 0,
       ),
       body: Column(

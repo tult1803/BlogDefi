@@ -11,7 +11,7 @@ colorHexa(String hexColor) {
 }
 
 Color colorAppBar = Colors.white;
-Color colorIconAppBar = Colors.blueAccent;
+Color colorIconAppBar = colorHexa("5396ff");
 Color colorTap = Colors.white10;
 Color colorSelectedIconBottomNavigationBar = colorHexa("000000");
 Color colorUnSelectedIconBottomNavigationBar = Colors.black54;
@@ -20,3 +20,5 @@ Color labelColor = Colors.black87;
 Color colorComponentTab = colorHexa("ededed");
 
 Color colorContainerTitle = colorHexa("1d1f21");
+
+Color colorLoadingAnimation = colorHexa("5396ff");

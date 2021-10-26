@@ -1,7 +1,12 @@
 import 'package:blogdefi/helpers/components.dart';
 import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
+import 'package:blogdefi/view/home/blockchain.dart';
+import 'package:blogdefi/view/home/defi_new.dart';
+import 'package:blogdefi/view/home/defi_project.dart';
 import 'package:blogdefi/view/home/mini/home.dart';
+import 'package:blogdefi/view/home/nfts.dart';
+import 'package:blogdefi/view/home/review.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,7 +38,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         // iconTheme: IconThemeData(color: colorIconAppBar),
         backgroundColor: colorAppBar,
         leading: Builder(builder: (context) => leadingAppBar(context)),
-        actions: actionsAppBar(0),
+        actions: actionsAppBar(context ,0),
         elevation: 0,
       ),
       body: Column(
@@ -74,21 +79,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       controller: _tabController,
       children: <Widget>[
         Home(),
-        Container(
-          child: Center(child: Text("Defi New")),
-        ),
-        Container(
-          child: Center(child: Text("Defi Project")),
-        ),
-        Container(
-          child: Center(child: Text("Blockchain")),
-        ),
-        Container(
-          child: Center(child: Text("NFTS")),
-        ),
-        Container(
-          child: Center(child: Text("Review")),
-        ),
+        DefiNew(categories: 37),
+        DefiProject(categories: 39),
+        Blockchain(categories: 43),
+        DefiNFTS(categories: 46),
+        DefiReview(categories: 41),
       ],
     );
   }
@@ -96,7 +91,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget component(String title, int index, {icon}) {
     return GestureDetector(
       onTap: () {
-        print('Tap $title');
         setState(() {
           _tabController.index = index;
         });

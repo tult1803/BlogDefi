@@ -9,43 +9,29 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'icon_defi_blog/icon_blog_defi_icons.dart';
 
+
 class HomeMainPage extends StatefulWidget {
-  int? newSelected;
+   int selectedIndex;
 
 
-  HomeMainPage({Key? key, this.newSelected}) : super(key: key);
+  HomeMainPage({required this.selectedIndex});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomeMainPage> {
-  late int _selectedIndex;
+class HomePageState extends State<HomeMainPage> {
   late Widget _widget;
+
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    widget.newSelected == null ? _selectedIndex = 0: _selectedIndex = widget.newSelected!;
-    _widget = HomePage();
+    _widget = indexWidgetMainPage(index: widget.selectedIndex);
   }
 
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-    print('didChangeDependencies');
-  }
 
-  @override
-  void didUpdateWidget(covariant HomeMainPage oldWidget) {
-    // TODO: implement didUpdateWidget
-    super.didUpdateWidget(oldWidget);
-    print('$oldWidget - ${widget.newSelected}');
-    print("didUpdateWidget");
-  }
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white10,
@@ -83,11 +69,11 @@ class _HomePageState extends State<HomeMainPage> {
                 padding: const EdgeInsets.only(
                     left: 5, right: 5, bottom: 20, top: 20),
                 tabMargin: const EdgeInsets.only(left: 0, right: 0),
-                selectedIndex: _selectedIndex,
+                selectedIndex: widget.selectedIndex,
                 onTabChange: (value) async {
-                  _selectedIndex = value;
+                  widget.selectedIndex = value;
                   _widget =
-                      await indexWidgetMainPage(index: _selectedIndex);
+                      await indexWidgetMainPage(index: widget.selectedIndex);
                   setState(() {});
                 },
                 tabs: const [
