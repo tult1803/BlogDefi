@@ -8,6 +8,7 @@ CategoriesBlog itemBlogFromJson(String str) => CategoriesBlog.fromJson(json.deco
 class CategoriesBlog {
   CategoriesBlog({
     this.id,
+    this.countViews,
     // this.date,
     // this.dateGmt,
     this.guid,
@@ -36,6 +37,7 @@ class CategoriesBlog {
   });
 
   int? id;
+  int? countViews;
   // DateTime? date;
   // DateTime? dateGmt;
   Guid? guid;
@@ -64,6 +66,7 @@ class CategoriesBlog {
 
   factory CategoriesBlog.fromJson(Map<String, dynamic> json) => CategoriesBlog(
     id: json["id"],
+    countViews: int.parse(json["count_views"]),
     // date: DateTime.parse(json["date"]),
     // dateGmt: DateTime.parse(json["date_gmt"]),
     guid: Guid.fromJson(json["guid"]),
@@ -93,6 +96,7 @@ class CategoriesBlog {
 
   Map<String, dynamic> toJson() => {
     "id": id,
+    "count_views": countViews,
     // "date": date?.toIso8601String(),
     // "date_gmt": dateGmt?.toIso8601String(),
     "guid": guid?.toJson(),

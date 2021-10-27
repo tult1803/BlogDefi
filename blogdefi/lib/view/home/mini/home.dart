@@ -16,11 +16,11 @@ class _HomeState extends State<Home> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          containerTitle("News Today"),
+          containerTitle(context,"News Today", categories: 37),
           const SizedBox(height: 10,),
           NewsToday(categories: 37,),
           const SizedBox(height: 10,),
-          containerTitle("Education"),
+          containerTitle(context,"Education", categories: 3),
           const SizedBox(height: 10,),
           LatestNews(categories: 3,),
           const SizedBox(height: 100,),

@@ -52,7 +52,7 @@ class _LoadCommentsState extends State<LoadComments> {
           } else {
             return Container(
               height: 150,
-              child: const Center(child: Text("Không có bình luận"),),
+              child: const Center(child: Text("No Comments"),),
             );
           }
         }

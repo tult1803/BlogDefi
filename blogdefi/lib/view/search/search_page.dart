@@ -24,7 +24,7 @@ class _SearchPageState extends State<SearchPage> {
     try {
       GetCategoriesBlogSearch getCategoriesBlogSearch = GetCategoriesBlogSearch();
       data = await getCategoriesBlogSearch.getData(
-          search: _searchTerm ?? "acbssd", page: _pageSize, perPage: pageKey);
+          search: _searchTerm, page: _pageSize, perPage: pageKey);
       setState(() {});
       final isLastPage = data.length < pageKey;
       if (isLastPage) {
@@ -76,7 +76,7 @@ class _SearchPageState extends State<SearchPage> {
                       firstPageErrorIndicatorBuilder(context, tittle: ""),
                   noItemsFoundIndicatorBuilder: (context) =>
                       firstPageErrorIndicatorBuilder(context,
-                          tittle: "Không tìm thấy bài viết liên quan"),
+                          tittle: "No Post Found"),
                   newPageErrorIndicatorBuilder: (context) =>
                       firstPageErrorIndicatorBuilder(context, tittle: ""),
                   firstPageProgressIndicatorBuilder: (context) =>

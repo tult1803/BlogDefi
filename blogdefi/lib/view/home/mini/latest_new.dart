@@ -1,9 +1,9 @@
-import 'package:blogdefi/data_demo.dart';
 import 'package:blogdefi/helpers/container.dart';
 import 'package:blogdefi/helpers/load/loading_animation.dart';
 import 'package:blogdefi/model/get/get_blog_categories.dart';
 import 'package:blogdefi/utils/function.dart';
 import 'package:flutter/material.dart';
+
 
 class LatestNews extends StatefulWidget {
   int categories;

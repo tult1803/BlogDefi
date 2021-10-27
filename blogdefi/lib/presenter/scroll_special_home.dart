@@ -30,6 +30,7 @@ class scrollSpecialHomeState extends State<scrollSpecialHome> {
       GetCategoriesBlog getCategoriesBlog = GetCategoriesBlog();
       data = await getCategoriesBlog.getData(
           categories: widget.categories, page: _pageSize, perPage: pageKey);
+      setState(() {});
       final isLastPage = data.length < pageKey;
       if (isLastPage) {
         _pagingController.appendLastPage(data);
@@ -58,7 +59,7 @@ class scrollSpecialHomeState extends State<scrollSpecialHome> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
         body: Container(
-      margin: const EdgeInsets.only(top: 10, left: 5, right: 5),
+      margin: const EdgeInsets.only(top: 0, left: 5, right: 5),
       height: size.height,
       width: size.width,
       child: CustomScrollView(
@@ -71,7 +72,7 @@ class scrollSpecialHomeState extends State<scrollSpecialHome> {
                         tittle: ""),
                 noItemsFoundIndicatorBuilder: (context) =>
                     firstPageErrorIndicatorBuilder(context,
-                        tittle: "Không tìm thấy bài viết liên quan"),
+                        tittle: "No Post Found"),
                 newPageErrorIndicatorBuilder: (context) =>
                     firstPageErrorIndicatorBuilder(context,
                         tittle: ""),
@@ -83,11 +84,11 @@ class scrollSpecialHomeState extends State<scrollSpecialHome> {
                   return Column(
                     children: [
                       firstPageErrorIndicatorBuilder(context,
-                          tittle: "Không có dữ liệu"),
+                          tittle: "No Post Found"),
                       GestureDetector(
                         onTap: () => _pagingController.refresh(),
                         child: Text(
-                          "Nhấn để tải lại",
+                          "Try again",
                           style: TextStyle(
                               color: colorHexa("aff022"), fontSize: 18),
                         ),

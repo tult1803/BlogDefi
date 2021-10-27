@@ -1,4 +1,5 @@
 import 'package:blogdefi/helpers/components.dart';
+import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:blogdefi/utils/function.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _DetailBlogState extends State<DetailBlog> {
                     height: 25,
                     width: 25,
                     child: Icon(
-                      Icons.ios_share,
+                      IconBlogDefi.share,
                       color: Colors.blue,
                     ))),
           ),
@@ -72,8 +73,8 @@ class _DetailBlogState extends State<DetailBlog> {
                 margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
                 alignment: Alignment.center,
                 child: Text(
-                  "${widget.title}",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  widget.title,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
               Html(
@@ -165,7 +166,7 @@ class _DetailBlogState extends State<DetailBlog> {
               SizedBox(
                 child: Container(
                   margin: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: const Text("Bình luận", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                  child: const Text("Comments", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                 ),
               ),
               LoadComments(id: widget.id),

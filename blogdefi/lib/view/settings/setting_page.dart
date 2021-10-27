@@ -30,7 +30,7 @@ class _SettingPageState extends State<SettingPage> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 10.0, bottom: 10),
-            child: containerTitle("Settings", fontSize: 30, isShowIcon: false),
+            child: containerTitle(context,"Settings", fontSize: 30, isShowIcon: false),
           ),
           _listTile(title: "Profile settings", subTitle: "Settings regarding your profile", icon: Icons.person),
           _listTile(title: "News settings", subTitle: "Choose your favourite topics", icon: Icons.assignment_outlined),

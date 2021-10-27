@@ -1,4 +1,3 @@
-import 'package:blogdefi/data_demo.dart';
 import 'package:blogdefi/helpers/container.dart';
 import 'package:blogdefi/helpers/load/loading_animation.dart';
 import 'package:blogdefi/model/get/get_blog_categories.dart';

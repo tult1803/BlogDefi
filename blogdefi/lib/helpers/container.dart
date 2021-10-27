@@ -1,6 +1,8 @@
 // Dùng cho title của các container trong trang chủ
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:blogdefi/helpers/components.dart';
 import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
+import 'package:blogdefi/presenter/scroll_special_home.dart';
 import 'package:blogdefi/presenter/show_detail_blog.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:flutter/material.dart';
@@ -84,7 +86,7 @@ Widget slideWeight(
   );
 }
 
-Widget containerTitle(title, {bool? isShowIcon,double? widthSizeBox, double? fontSize}) {
+Widget containerTitle(BuildContext context,title, {bool? isShowIcon,double? widthSizeBox, double? fontSize, Widget? widget, int? categories}) {
   return Container(
     margin: const EdgeInsets.only(left: 20),
     width: double.infinity,
@@ -102,7 +104,18 @@ Widget containerTitle(title, {bool? isShowIcon,double? widthSizeBox, double? fon
         SizedBox(
           child:isShowIcon == false ? Container() : Container(
               margin: const EdgeInsets.only(right: 20),
-              child: const Icon(IconBlogDefi.dot)),
+              child:  GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Scaffold(
+                        appBar: AppBar(
+                          elevation: 0,
+                          backgroundColor: colorAppBar,
+                          leading: leadingAppbar(context, colorIcon: colorIconAppBar),
+                        ),
+                        body: scrollSpecialHome(categories: categories,)),
+                    ));
+                  },
+                  child: Icon(IconBlogDefi.dot))),
         ),
       ],
     ),
@@ -133,7 +146,7 @@ Widget containerDetailBlog(
       ));
     },
     child: Container(
-      margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+      margin: const EdgeInsets.only(top: 10,left: 20, right: 20, bottom: 10),
       width: size.width,
       decoration: BoxDecoration(
         color: Colors.white,

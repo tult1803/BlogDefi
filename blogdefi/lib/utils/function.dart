@@ -13,7 +13,7 @@ shareBlog({mainUrl, title, redirectUrl}) async {
   );
 }
 
-
+//Format ngày
 getDateTime(String date){
   DateTime dateF = DateTime.parse(date);
   return DateFormat('MM:HH dd/MM').format(dateF);
