@@ -19,10 +19,9 @@ class _NewsTodayState extends State<NewsToday> {
 
   getData() async {
     GetCategoriesBlog categoriesBlog = GetCategoriesBlog();
-    if(dataNewsToday == null) {
-      dataNewsToday = await categoriesBlog.getData(
+    dataNewsToday ??= await categoriesBlog.getData(
           categories: "${widget.categories}", page: "1", perPage: "5");
-    }
+
     return dataNewsToday;
   }
 
@@ -41,11 +40,11 @@ class _NewsTodayState extends State<NewsToday> {
               itemBuilder: (context, index, realIndex) {
                 return slideWeight(
                     context: context,
-                    title: "${dataNewsToday![index].title!.rendered}",
-                    contentDetail: "${dataNewsToday![index].content!.rendered}",
-                    id: dataNewsToday![index].id,
-                    redirectUrl: dataNewsToday![index].guid!.rendered,
-                    imgUrl: "${dataNewsToday![index].yoastHeadJson!.ogImage!.first.url}");
+                    title: "${dataNewsToday!.elementAt(index)['title']['rendered']}",
+                    contentDetail: "${dataNewsToday!.elementAt(index)['content']['rendered']}",
+                    id: dataNewsToday!.elementAt(index)['id'],
+                    redirectUrl: dataNewsToday!.elementAt(index)['guid']['rendered'],
+                    imgUrl: "${dataNewsToday!.elementAt(index)['yoast_head_json']["og_image"].first['url']}");
               },
               options: CarouselOptions(
                 autoPlay: true,

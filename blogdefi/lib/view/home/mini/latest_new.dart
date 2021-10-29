@@ -17,10 +17,8 @@ class LatestNews extends StatefulWidget {
 class _LatestNewsState extends State<LatestNews> {
   getData() async {
     GetCategoriesBlog categoriesBlog = GetCategoriesBlog();
-    if (dataLatestNews == null) {
-      dataLatestNews = await categoriesBlog.getData(
+    dataLatestNews ??= await categoriesBlog.getData(
           categories: "${widget.categories}", page: "1", perPage: "4");
-    }
     return dataLatestNews;
   }
 
@@ -34,33 +32,35 @@ class _LatestNewsState extends State<LatestNews> {
           return Column(
             children: [
               containerDetailBlog(context,
-                  imgUrl: "${dataLatestNews![0].yoastHeadJson!.ogImage!.first.url}",
                   size: size,
-                  id: dataLatestNews![0].id,
-                  content: "${dataLatestNews![0].content!.rendered}",
-                  redirectUrl: "${dataLatestNews![0].guid!.rendered}",
-                  title: "${dataLatestNews![0].title!.rendered}",),
+                  title: "${dataNewsToday!.elementAt(0)['title']['rendered']}",
+                  content:
+                      "${dataNewsToday!.elementAt(0)['content']['rendered']}",
+                  id: dataNewsToday!.elementAt(0)['id'],
+                  redirectUrl: dataNewsToday!.elementAt(0)['guid']['rendered'],
+                  imgUrl:
+                      "${dataNewsToday!.elementAt(0)['yoast_head_json']["og_image"].first['url']}"),
               containerDetailBlog(context,
-                imgUrl: "${dataLatestNews![1].yoastHeadJson!.ogImage!.first.url}",
-                size: size,
-                id: dataLatestNews![1].id,
-                content: "${dataLatestNews![1].content!.rendered}",
-                redirectUrl: "${dataLatestNews![1].guid!.rendered}",
-                title: "${dataLatestNews![1].title!.rendered}",),
+                  size: size,
+                  title: "${dataNewsToday!.elementAt(1)['title']['rendered']}",
+                  content: "${dataNewsToday!.elementAt(1)['content']['rendered']}",
+                  id: dataNewsToday!.elementAt(1)['id'],
+                  redirectUrl: dataNewsToday!.elementAt(1)['guid']['rendered'],
+                  imgUrl: "${dataNewsToday!.elementAt(1)['yoast_head_json']["og_image"].first['url']}"),
               containerDetailBlog(context,
-                imgUrl: "${dataLatestNews![2].yoastHeadJson!.ogImage!.first.url}",
-                size: size,
-                id: dataLatestNews![2].id,
-                content: "${dataLatestNews![2].content!.rendered}",
-                redirectUrl: "${dataLatestNews![2].guid!.rendered}",
-                title: "${dataLatestNews![2].title!.rendered}",),
+                  size: size,
+                  title: "${dataNewsToday!.elementAt(2)['title']['rendered']}",
+                  content: "${dataNewsToday!.elementAt(2)['content']['rendered']}",
+                  id: dataNewsToday!.elementAt(2)['id'],
+                  redirectUrl: dataNewsToday!.elementAt(2)['guid']['rendered'],
+                  imgUrl: "${dataNewsToday!.elementAt(2)['yoast_head_json']["og_image"].first['url']}"),
               containerDetailBlog(context,
-                imgUrl: "${dataLatestNews![3].yoastHeadJson!.ogImage!.first.url}",
-                size: size,
-                id: dataLatestNews![3].id,
-                content: "${dataLatestNews![3].content!.rendered}",
-                redirectUrl: "${dataLatestNews![3].guid!.rendered}",
-                title: "${dataLatestNews![3].title!.rendered}",),
+                  size: size,
+                  title: "${dataNewsToday!.elementAt(3)['title']['rendered']}",
+                  content: "${dataNewsToday!.elementAt(3)['content']['rendered']}",
+                  id: dataNewsToday!.elementAt(3)['id'],
+                  redirectUrl: dataNewsToday!.elementAt(3)['guid']['rendered'],
+                  imgUrl: "${dataNewsToday!.elementAt(3)['yoast_head_json']["og_image"].first['url']}"),
             ],
           );
         }

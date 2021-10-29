@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import 'package:blogdefi/utils/url.dart';
 import 'package:http/http.dart' as http;
@@ -18,7 +19,7 @@ class GetCategoriesBlogSearch {
           });
       print('Get API Search Posts: ${response.statusCode}');
       if (response.statusCode == 200) {
-        return categoriesBlogFromJson(response.body);
+        return jsonDecode(response.body);
       } else {
         return [];
       }
@@ -43,7 +44,7 @@ class GetCategoriesBlog {
           });
 
       if (response.statusCode == 200) {
-        return categoriesBlogFromJson(response.body);
+        return jsonDecode(response.body);
       } else {
         return [];
       }

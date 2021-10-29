@@ -23,13 +23,14 @@ class scrollSpecialHome extends StatefulWidget {
 class scrollSpecialHomeState extends State<scrollSpecialHome> {
   int _pageSize = 1;
   final PagingController _pagingController = PagingController(firstPageKey: 10);
-  late List<CategoriesBlog> data;
+  late List<dynamic> data;
 
   Future<void> _fetchPage(pageKey) async {
     try {
       GetCategoriesBlog getCategoriesBlog = GetCategoriesBlog();
       data = await getCategoriesBlog.getData(
           categories: widget.categories, page: _pageSize, perPage: pageKey);
+      print(data.length);
       setState(() {});
       final isLastPage = data.length < pageKey;
       if (isLastPage) {
@@ -98,14 +99,14 @@ class scrollSpecialHomeState extends State<scrollSpecialHome> {
                 },
                 itemBuilder: (context, item, index) {
                   String itemEncode = jsonEncode(item);
-                  var itemDecode = itemBlogFromJson(itemEncode);
+                  Map<String, dynamic> itemDecode = jsonDecode(itemEncode);
                   return containerDetailBlog(context,
-                    imgUrl: itemDecode.yoastHeadJson!.ogImage!.first.url,
+                    imgUrl: itemDecode['yoast_head_json']["og_image"].first['url'],
                     size: size,
-                    title: itemDecode.yoastHeadJson!.title,
-                    id: itemDecode.id,
-                    content: itemDecode.content!.rendered,
-                    redirectUrl: itemDecode.guid!.rendered,
+                    title: itemDecode['yoast_head_json']["title"],
+                    id: itemDecode['id'],
+                    content: itemDecode['content'],
+                    redirectUrl: itemDecode['guid']['rendered'],
                   );
                 },
               )),
