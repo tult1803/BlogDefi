@@ -29,40 +29,57 @@ class _LatestNewsState extends State<LatestNews> {
       future: getData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Column(
-            children: [
-              containerDetailBlog(context,
-                  size: size,
-                  title: "${dataNewsToday!.elementAt(0)['title']['rendered']}",
-                  content:
-                      "${dataNewsToday!.elementAt(0)['content']['rendered']}",
-                  id: dataNewsToday!.elementAt(0)['id'],
-                  redirectUrl: dataNewsToday!.elementAt(0)['guid']['rendered'],
-                  imgUrl:
-                      "${dataNewsToday!.elementAt(0)['yoast_head_json']["og_image"].first['url']}"),
-              containerDetailBlog(context,
-                  size: size,
-                  title: "${dataNewsToday!.elementAt(1)['title']['rendered']}",
-                  content: "${dataNewsToday!.elementAt(1)['content']['rendered']}",
-                  id: dataNewsToday!.elementAt(1)['id'],
-                  redirectUrl: dataNewsToday!.elementAt(1)['guid']['rendered'],
-                  imgUrl: "${dataNewsToday!.elementAt(1)['yoast_head_json']["og_image"].first['url']}"),
-              containerDetailBlog(context,
-                  size: size,
-                  title: "${dataNewsToday!.elementAt(2)['title']['rendered']}",
-                  content: "${dataNewsToday!.elementAt(2)['content']['rendered']}",
-                  id: dataNewsToday!.elementAt(2)['id'],
-                  redirectUrl: dataNewsToday!.elementAt(2)['guid']['rendered'],
-                  imgUrl: "${dataNewsToday!.elementAt(2)['yoast_head_json']["og_image"].first['url']}"),
-              containerDetailBlog(context,
-                  size: size,
-                  title: "${dataNewsToday!.elementAt(3)['title']['rendered']}",
-                  content: "${dataNewsToday!.elementAt(3)['content']['rendered']}",
-                  id: dataNewsToday!.elementAt(3)['id'],
-                  redirectUrl: dataNewsToday!.elementAt(3)['guid']['rendered'],
-                  imgUrl: "${dataNewsToday!.elementAt(3)['yoast_head_json']["og_image"].first['url']}"),
-            ],
-          );
+          if(dataLatestNews!.isNotEmpty) {
+            return Column(
+              children: [
+                containerDetailBlog(context,
+                    size: size,
+                    title: "${dataNewsToday!.elementAt(
+                        0)['title']['rendered']}",
+                    content:
+                    "${dataNewsToday!.elementAt(0)['content']['rendered']}",
+                    id: dataNewsToday!.elementAt(0)['id'],
+                    redirectUrl: dataNewsToday!.elementAt(
+                        0)['guid']['rendered'],
+                    imgUrl:
+                    "${dataNewsToday!.elementAt(
+                        0)['yoast_head_json']["og_image"].first['url']}"),
+                containerDetailBlog(context,
+                    size: size,
+                    title: "${dataNewsToday!.elementAt(
+                        1)['title']['rendered']}",
+                    content: "${dataNewsToday!.elementAt(
+                        1)['content']['rendered']}",
+                    id: dataNewsToday!.elementAt(1)['id'],
+                    redirectUrl: dataNewsToday!.elementAt(
+                        1)['guid']['rendered'],
+                    imgUrl: "${dataNewsToday!.elementAt(
+                        1)['yoast_head_json']["og_image"].first['url']}"),
+                containerDetailBlog(context,
+                    size: size,
+                    title: "${dataNewsToday!.elementAt(
+                        2)['title']['rendered']}",
+                    content: "${dataNewsToday!.elementAt(
+                        2)['content']['rendered']}",
+                    id: dataNewsToday!.elementAt(2)['id'],
+                    redirectUrl: dataNewsToday!.elementAt(
+                        2)['guid']['rendered'],
+                    imgUrl: "${dataNewsToday!.elementAt(
+                        2)['yoast_head_json']["og_image"].first['url']}"),
+                containerDetailBlog(context,
+                    size: size,
+                    title: "${dataNewsToday!.elementAt(
+                        3)['title']['rendered']}",
+                    content: "${dataNewsToday!.elementAt(
+                        3)['content']['rendered']}",
+                    id: dataNewsToday!.elementAt(3)['id'],
+                    redirectUrl: dataNewsToday!.elementAt(
+                        3)['guid']['rendered'],
+                    imgUrl: "${dataNewsToday!.elementAt(
+                        3)['yoast_head_json']["og_image"].first['url']}"),
+              ],
+            );
+          }else SizedBox();
         }
         return SizedBox(
             height: 200,
