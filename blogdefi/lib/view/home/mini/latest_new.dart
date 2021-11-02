@@ -79,7 +79,9 @@ class _LatestNewsState extends State<LatestNews> {
                         3)['yoast_head_json']["og_image"].first['url']}"),
               ],
             );
-          }else SizedBox();
+          }else {
+            const SizedBox();
+          }
         }
         return SizedBox(
             height: 200,

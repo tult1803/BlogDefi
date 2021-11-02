@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "586621931437",
+    "project_id": "blogdefi",
+    "storage_bucket": "blogdefi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586621931437:android:d697533107fd266f5d9b24",
+        "android_client_info": {
+          "package_name": "com.blogdefi.blogdefi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586621931437-qvmhieo79opun9js84m7bhnrqsfcd5d6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.blogdefi.blogdefi",
+            "certificate_hash": "ceacb205e85afa03e2baa7464ef89abb6dc1fe61"
+          }
+        },
+        {
+          "client_id": "586621931437-iklmurhchbmq2d611n4dlfmk6odbggbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbm_TRHQRNMhVkIY8imtvcxwMsOM58_0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586621931437-iklmurhchbmq2d611n4dlfmk6odbggbu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "586621931437-p22vk22c34f35o4rev9bf7k5ld5h942p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.blogdefi.blogdefi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
