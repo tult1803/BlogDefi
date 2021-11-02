@@ -19,7 +19,7 @@ class _LatestNewsState extends State<LatestNews> {
     GetCategoriesBlog categoriesBlog = GetCategoriesBlog();
     dataLatestNews ??= await categoriesBlog.getData(
           categories: "${widget.categories}", page: "1", perPage: "4");
-    return dataLatestNews;
+    return dataLatestNews ?? [];
   }
 
   @override
