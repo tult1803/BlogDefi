@@ -86,16 +86,20 @@ class _SearchPageState extends State<SearchPage> {
                 itemBuilder: (context, item, index) {
                   String itemEncode = jsonEncode(item);
                   Map<String, dynamic> itemDecode = jsonDecode(itemEncode);
-                  return containerDetailBlog(
-                    context,
-                    imgUrl:
-                        itemDecode['yoast_head_json']["og_image"].first['url'],
-                    size: size,
-                    title: itemDecode['yoast_head_json']["title"],
-                    id: itemDecode['id'],
-                    content: itemDecode['content'],
-                    redirectUrl: itemDecode['guid']['rendered'],
-                  );
+                  if(itemDecode['yoast_head_json']["og_image"] != null){
+                    return containerDetailBlog(
+                      context,
+                      imgUrl:
+                      itemDecode['yoast_head_json']["og_image"].first['url'],
+                      size: size,
+                      title: itemDecode['yoast_head_json']["title"],
+                      id: itemDecode['id'],
+                      content: itemDecode['content'],
+                      redirectUrl: itemDecode['guid']['rendered'],
+                    );
+                  }else {
+                    return SizedBox();
+                  }
                 },
               ),
             ),
