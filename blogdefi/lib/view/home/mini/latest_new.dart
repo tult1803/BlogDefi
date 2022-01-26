@@ -26,10 +26,10 @@ class _LatestNewsState extends State<LatestNews> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return FutureBuilder(
-      future: getData(),
+      future: getData() ?? [],
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          if(dataLatestNews!.isNotEmpty) {
+          if(dataLatestNews!.isNotEmpty || dataLatestNews != null) {
             return Column(
               children: [
                 containerDetailBlog(context,

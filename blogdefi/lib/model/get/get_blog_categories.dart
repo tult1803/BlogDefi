@@ -7,6 +7,7 @@ import '../model_data_categories_blog.dart';
 class GetCategoriesBlogSearch {
   getData({required search, required page, required perPage}) async {
     try {
+
       var response = await http.get(
           Uri.https(urlDefiaz, subUrl, {
             "page": "$page",

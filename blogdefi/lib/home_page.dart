@@ -107,7 +107,7 @@ class HomePageState extends State<HomeMainPage> {
                           setState(() {});
                         },
                       ),
-                      GButton(
+                      const GButton(
                         icon: IconBlogDefi.setting,
                       )
                     ]),

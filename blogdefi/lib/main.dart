@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:blogdefi/home_page.dart';
 import 'package:blogdefi/utils/color.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -10,10 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 /// Initialize the [FlutterLocalNotificationsPlugin] package.
-FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
+FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 /// Create a [AndroidNotificationChannel] for heads up notifications
-AndroidNotificationChannel? channel;
+AndroidNotificationChannel channel;
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
   // make sure you call `initializeApp` before using other Firebase services.
@@ -66,7 +67,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   getFCMToken() async{
-    String? token = await FirebaseMessaging.instance.getToken();
+    String token = await FirebaseMessaging.instance.getToken();
     print("Token: $token");
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     return token;

@@ -5,6 +5,7 @@ import 'package:blogdefi/icon_defi_blog/icon_blog_defi_icons.dart';
 import 'package:blogdefi/presenter/scroll_special_home.dart';
 import 'package:blogdefi/presenter/show_detail_blog.dart';
 import 'package:blogdefi/utils/color.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -166,11 +167,11 @@ Widget containerDetailBlog(
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                imgUrl,
+              child: CachedNetworkImage(
                 width: 99,
                 height: 99,
                 fit: BoxFit.cover,
+                imageUrl: imgUrl,
               ),
             ),
             Expanded(

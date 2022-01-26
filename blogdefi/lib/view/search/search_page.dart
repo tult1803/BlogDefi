@@ -87,6 +87,7 @@ class _SearchPageState extends State<SearchPage> {
                   String itemEncode = jsonEncode(item);
                   Map<String, dynamic> itemDecode = jsonDecode(itemEncode);
                   if(itemDecode['yoast_head_json']["og_image"] != null){
+                    print( itemDecode['yoast_head_json']["og_image"].first['url']);
                     return containerDetailBlog(
                       context,
                       imgUrl:

@@ -10,6 +10,6 @@ class MarkPage extends StatefulWidget {
 class _MarkPageState extends State<MarkPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: const Text("Mark Page"),);
+    return const Center(child: Text("Coming soon"),);
   }
 }
